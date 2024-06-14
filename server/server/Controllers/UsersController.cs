@@ -5,8 +5,8 @@ using server.Helpers;
 
 namespace server.Controllers
 {
-    [Controller]
     [Route("api/users")]
+    [ApiController]
     public class UsersController : ControllerBase
     {
         private readonly UserRepository _usersRepository;

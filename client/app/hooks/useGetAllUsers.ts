@@ -2,7 +2,10 @@ import { useEffect, useState } from "react";
 import usersService from "../services/usersService";
 import { IUser } from "../interfaces/IUser";
 
-export const useGetAllUsers = (isSorted: boolean | null) => {
+export const useGetAllUsers = (
+  isSorted: boolean | null,
+  isAddedUser: boolean
+) => {
   const [usersData, setUsersData] = useState<IUser[]>([]);
 
   useEffect(() => {
@@ -13,7 +16,7 @@ export const useGetAllUsers = (isSorted: boolean | null) => {
     };
 
     fetchData();
-  }, [isSorted]);
+  }, [isSorted, isAddedUser]);
 
   return { usersData };
 };
