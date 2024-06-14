@@ -5,6 +5,7 @@ using MongoDB.Driver;
 using server.Interfaces;
 using server.Dtos;
 using AutoMapper;
+using server.Helpers;
 
 namespace server.Repositories
 {
@@ -37,16 +38,33 @@ namespace server.Repositories
             _usersCollection.Indexes.CreateOne(countryCityIndexModel);
         }
 
-        public async Task<List<User>> GetAllUsers()
+        public async Task<List<User>> GetAllUsers(QueryObject query)
         {
-            var users = await _usersCollection.Find(new BsonDocument()).ToListAsync();
+            var users = _usersCollection.Find(new BsonDocument());
 
-            return users;
+            if (!string.IsNullOrWhiteSpace(query.SortBy))
+            {
+                if(query.SortBy.Equals("birthDate", StringComparison.OrdinalIgnoreCase))
+                {
+                    users = query.isDecending ? _usersCollection.Find(new BsonDocument()).SortByDescending(e => e.birthDate) : _usersCollection.Find(new BsonDocument()).SortBy(e => e.birthDate);
+                }
+            }
+
+            return await users.ToListAsync();
         }
 
         public async Task<User> CreateUser(UserDto userDto)
         {
             var user = _mapper.Map<User>(userDto);
+
+            DateOnly today = DateOnly.FromDateTime(DateTime.Now);
+
+            int age = AgeCalculator.CalculateAge(user.birthDate, today);
+
+            if (age < 18) { 
+                throw new InvalidOperationException("User must be at least 18 years old to register.");
+            }
+
             await _usersCollection.InsertOneAsync(user);
 
             return user;

@@ -16,7 +16,7 @@ namespace server.Models
         [Required]
         public string lastName { get; set; } = string.Empty ;
         [Required]
-        public string birthDate { get; set; } = string.Empty;
+        public DateOnly birthDate { get; set; }
         [Required]
         public string country { get; set; } = string.Empty ;
         [Required]

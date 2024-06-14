@@ -1,6 +1,7 @@
 ﻿using server.Dtos;
 using server.Repositories;
 using Microsoft.AspNetCore.Mvc;
+using server.Helpers;
 
 namespace server.Controllers
 {
@@ -16,9 +17,9 @@ namespace server.Controllers
         }
 
         [HttpGet]
-        public async Task<IActionResult> GetAll()
+        public async Task<IActionResult> GetAll([FromQuery] QueryObject query)
         {
-            var users = await _usersRepository.GetAllUsers();
+            var users = await _usersRepository.GetAllUsers(query);
 
             return Ok(users);
         }

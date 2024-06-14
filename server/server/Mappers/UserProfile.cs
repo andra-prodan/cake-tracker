@@ -7,7 +7,8 @@ namespace server.Mappers
     public class UserProfile : Profile
     {
         public UserProfile() {
-            CreateMap<UserDto, User>();
+            CreateMap<UserDto, User>()
+                .ForMember(dest => dest.birthDate, opt => opt.MapFrom(src => DateOnly.Parse(src.birthDate)));
         }
     }
 }
