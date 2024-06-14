@@ -9,6 +9,8 @@ namespace server.Mappers
         public UserProfile() {
             CreateMap<UserDto, User>()
                 .ForMember(dest => dest.birthDate, opt => opt.MapFrom(src => DateOnly.Parse(src.birthDate)));
+            CreateMap<CreateUserDto, User>()
+                .ForMember(dest => dest.birthDate, opt => opt.MapFrom(src => DateOnly.Parse(src.birthDate)));
         }
     }
 }

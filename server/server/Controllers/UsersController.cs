@@ -25,7 +25,7 @@ namespace server.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> CreateUser([FromBody] UserDto userDto)
+        public async Task<IActionResult> CreateUser([FromBody] CreateUserDto userDto)
         {
             var user = await _usersRepository.CreateUser(userDto);
 

@@ -53,7 +53,7 @@ namespace server.Repositories
             return await users.ToListAsync();
         }
 
-        public async Task<User> CreateUser(UserDto userDto)
+        public async Task<User> CreateUser(CreateUserDto userDto)
         {
             var user = _mapper.Map<User>(userDto);
 
