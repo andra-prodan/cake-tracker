@@ -39,7 +39,7 @@ The Cake Tracker application is built using .NET for the backend, React for the 
    - MongoDB
 2. Open your browser and navigate to [http://localhost:3000/](http://localhost:3000/).
 
-### Application Features
+## Application Features
 
 ### Navbar
 - **Home:** Start page.
