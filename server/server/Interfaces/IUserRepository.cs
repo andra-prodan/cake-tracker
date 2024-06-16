@@ -8,5 +8,6 @@ namespace server.Interfaces
     {
         public Task<List<User>> GetAllUsers(QueryObject query);
         public Task<User> CreateUser(CreateUserDto userDto);
+        public Task<bool> CheckUniqueAsync(string field, string value);
     }
 }

@@ -1,0 +1,84 @@
+[{
+  "firstName": "John",
+  "lastName": "Doe",
+  "birthDate": {
+    "Year": 1992,
+    "Month": 12,
+    "Day": 10
+  },
+  "country": "USA",
+  "city": "New York",
+  "proximityToCurrentDate": 177
+},
+{
+  "firstName": "Jane",
+  "lastName": "Smith",
+  "birthDate": {
+    "Year": 1985,
+    "Month": 5,
+    "Day": 20
+  },
+  "country": "Canada",
+  "city": "Toronto",
+  "proximityToCurrentDate": 338
+},
+{
+  "firstName": "Emily",
+  "lastName": "Johnson",
+  "birthDate": {
+    "Year": 1990,
+    "Month": 8,
+    "Day": 15
+  },
+  "country": "UK",
+  "city": "London",
+  "proximityToCurrentDate": 60
+},
+{
+  "firstName": "Michael",
+  "lastName": "Brown",
+  "birthDate": {
+    "Year": 1978,
+    "Month": 3,
+    "Day": 5
+  },
+  "country": "Australia",
+  "city": "Sydney",
+  "proximityToCurrentDate": 262
+},
+{
+  "firstName": "Emma",
+  "lastName": "Wilson",
+  "birthDate": {
+    "Year": 2000,
+    "Month": 11,
+    "Day": 30
+  },
+  "country": "New Zealand",
+  "city": "Auckland",
+  "proximityToCurrentDate": 167
+},
+{
+  "firstName": "Robert",
+  "lastName": "Mich",
+  "birthDate": {
+    "Year": 1990,
+    "Month": 7,
+    "Day": 12
+  },
+  "country": "Romania",
+  "city": "Cluj-Napoca",
+  "proximityToCurrentDate": 26
+},
+{
+  "firstName": "Will",
+  "lastName": "Willson",
+  "birthDate": {
+    "Year": 2003,
+    "Month": 7,
+    "Day": 10
+  },
+  "country": "Romania",
+  "city": "Bucuresti",
+  "proximityToCurrentDate": 24
+}]

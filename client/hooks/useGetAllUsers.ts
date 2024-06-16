@@ -2,21 +2,18 @@ import { useEffect, useState } from "react";
 import usersService from "../services/usersService";
 import { IUser } from "../interfaces/IUser";
 
-export const useGetAllUsers = (
-  isSorted: boolean | null,
-  isAddedUser: boolean
-) => {
+export const useGetAllUsers = ({ isAddedUser }: { isAddedUser: boolean }) => {
   const [usersData, setUsersData] = useState<IUser[]>([]);
 
   useEffect(() => {
     const fetchData = async () => {
-      const users = await usersService().getAllUsers(isSorted);
+      const users = await usersService().getAllUsers();
 
       setUsersData(users);
     };
 
     fetchData();
-  }, [isSorted, isAddedUser]);
+  }, [isAddedUser]);
 
   return { usersData };
 };

@@ -31,5 +31,12 @@ namespace server.Controllers
 
             return Ok(user);
         }
+
+        [HttpGet("unique")]
+        public async Task<ActionResult<bool>> CheckUnique([FromQuery] string field, [FromQuery] string value)
+        {
+            var isUnique = await _usersRepository.CheckUniqueAsync(field, value);
+            return Ok(new { isUnique });
+        }
     }
 }

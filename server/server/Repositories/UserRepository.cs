@@ -40,17 +40,27 @@ namespace server.Repositories
 
         public async Task<List<User>> GetAllUsers(QueryObject query)
         {
-            var users = _usersCollection.Find(new BsonDocument());
+            var filter = new BsonDocument();
+
+            var users = _usersCollection.Find(filter);
 
             if (!string.IsNullOrWhiteSpace(query.SortBy))
             {
-                if(query.SortBy.Equals("birthDate", StringComparison.OrdinalIgnoreCase))
+                if (query.SortBy.Equals("proximityToCurrentDate", StringComparison.OrdinalIgnoreCase))
                 {
-                    users = query.isDecending ? _usersCollection.Find(new BsonDocument()).SortByDescending(e => e.birthDate) : _usersCollection.Find(new BsonDocument()).SortBy(e => e.birthDate);
+                    users = query.isDecending ? _usersCollection.Find(filter).SortByDescending(e => e.proximityToCurrentDate) : _usersCollection.Find(filter).SortBy(e => e.proximityToCurrentDate);
                 }
             }
 
-            return await users.ToListAsync();
+            if (!string.IsNullOrWhiteSpace(query.SortBy))
+            {
+                if (query.SortBy.Equals("birthDate", StringComparison.OrdinalIgnoreCase))
+                {
+                    users = query.isDecending ? _usersCollection.Find(filter).SortByDescending(e => e.birthDate) : _usersCollection.Find(filter).SortBy(e => e.birthDate);
+                }
+            }
+
+            return await users.Skip((query.PageNumber - 1) * query.PageSize).Limit(query.PageSize).ToListAsync();
         }
 
         public async Task<User> CreateUser(CreateUserDto userDto)
@@ -65,9 +75,18 @@ namespace server.Repositories
                 throw new InvalidOperationException("User must be at least 18 years old to register.");
             }
 
+            user.proximityToCurrentDate = AgeCalculator.CalculateProximityToCurrentDate(user.birthDate);
+
             await _usersCollection.InsertOneAsync(user);
 
             return user;
+        }
+
+        public async Task<bool> CheckUniqueAsync(string field, string value)
+        {
+            var filter = Builders<User>.Filter.Eq(field, value);
+            var existingUser = await _usersCollection.Find(filter).FirstOrDefaultAsync();
+            return existingUser == null;
         }
     }
 }
