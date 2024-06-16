@@ -41,7 +41,7 @@ The Cake Tracker application is built using .NET for the backend, React for the 
 
 ## Application Features
 
-### Navbar
+### Frontend Features
 - **Home:** Start page.
 - **Users:**
   - Displays all users in a sortable table.
