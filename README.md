@@ -41,23 +41,21 @@ The Cake Tracker application is built using .NET for the backend, React for the 
 
 ### Application Features
 
-#### Navbar
+### Navbar
 - **Home:** Start page.
-
-#### Users:
-- Displays all users in a sortable table.
-- Pagination is implemented with 5 users per page.
-- Below the table, there is an "Add User" button.
-- Clicking the "Add User" button opens a form that must be completed to add a new user.
-- The form includes validation:
-  - All fields are required.
-  - Age must be at least 18 years.
-  - Duplicate names or locations are not allowed.
-- The "Add" button submits the form and adds a user.
-- The "Close" button closes the form.
-
-#### Birthdays:
-- Lists all users sorted by upcoming birthdays.
+- **Users:**
+  - Displays all users in a sortable table.
+  - Pagination is implemented with 5 users per page.
+  - Below the table, there is an "Add User" button.
+  - Clicking the "Add User" button opens a form that must be completed to add a new user.
+  - The form includes validation:
+    - All fields are required.
+    - Age must be at least 18 years.
+    - Duplicate names or locations are not allowed.
+  - The "Add" button submits the form and adds a user.
+  - The "Close" button closes the form.
+- **Birthdays:**
+  - Lists all users sorted by upcoming birthdays.
 
 ### Backend Features
 - Age validation (minimum 18 years).
