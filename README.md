@@ -1,65 +1,65 @@
-# Aplicația Cake Tracker
+# Cake Tracker Application
 
-## Prezentare generală
-Această aplicație este construită folosind .NET pentru backend, React pentru frontend și MongoDB pentru baza de date. Urmați instrucțiunile de mai jos pentru a configura și rula proiectul local.
+## Overview
+The Cake Tracker application is built using .NET for the backend, React for the frontend, and MongoDB for the database. Follow the instructions below to set up and run the project locally.
 
-## Cerințe preliminare
+## Prerequisites
 - Visual Studio
-- Node.js și npm
+- Node.js and npm
 - MongoDB
 
-## Începerea proiectului
+## Getting Started
 
 ### Backend (.NET)
-1. Deschideți Visual Studio.
-2. Deschideți folderul `server` în Visual Studio.
-3. Construiți și rulați proiectul din Visual Studio.
+1. Open Visual Studio.
+2. Navigate to the `server` folder.
+3. Build and run the project from Visual Studio.
 
 ### Frontend (React)
-1. Deschideți un terminal.
-2. Navigați în folderul `client`.
-3. Rulați următoarele comenzi:
+1. Open a terminal.
+2. Navigate to the `client` folder.
+3. Run the following commands:
    ```bash
    npm install
    npm run dev
    
-### Baza de date (MongoDB)
-1. Asigurați-vă că MongoDB este instalat și rulează pe mașina dvs.
-2. Creați o bază de date numită `cakeTrackerDB`.
-3. Creați o colecție numită `users`.
+### Database (MongoDB)
+- Ensure MongoDB is installed and running on your machine.
+- Create a database named `cakeTrackerDB`.
+- Create a collection named `users`.
 
-### Date de test
-1. În repository-ul GitHub, există un fișier numit `dummyData`.
-2. Utilizați acest fișier pentru a importa date de test în colecția `users` a bazei de date `cakeTrackerDB`.
+#### Dummy Data
+- In the GitHub repository, there is a file named `dummyData`.
+- Use this file to import dummy data into the `users` collection of the `cakeTrackerDB` database.
 
-## Rularea aplicației
-1. Asigurați-vă că toate serviciile sunt pornite:
-   - Backend-ul .NET
-   - Frontend-ul React
+### Running the Application
+1. Ensure all services are running:
+   - .NET backend
+   - React frontend
    - MongoDB
-2. Deschideți browserul și navigați la `http://localhost:3000/`.
+2. Open your browser and navigate to [http://localhost:3000/](http://localhost:3000/).
 
-## Funcționalitățile aplicației
+### Application Features
 
-### Navbar
-- **Home:** Pagina de start.
+#### Navbar
+- **Home:** Start page.
 
-- **Users:** 
-  - Afișează toți utilizatorii într-un tabel sortabil.
-  - Paginarea este implementată cu 5 utilizatori per pagină.
-  - Sub tabel, există un buton "Adaugă utilizator".
-  - Apăsând pe butonul "Adaugă utilizator" se deschide un formular care trebuie completat pentru a adăuga un nou utilizator.
-  - Formularul include validare:
-    - Toate câmpurile sunt obligatorii.
-    - Vârsta trebuie să fie de cel puțin 18 ani.
-    - Nu sunt permise nume sau locații duplicate.
-  - Butonul "Adaugă" trimite formularul și adaugă un utilizator.
-  - Butonul "Închide" închide formularul.
+#### Users:
+- Displays all users in a sortable table.
+- Pagination is implemented with 5 users per page.
+- Below the table, there is an "Add User" button.
+- Clicking the "Add User" button opens a form that must be completed to add a new user.
+- The form includes validation:
+  - All fields are required.
+  - Age must be at least 18 years.
+  - Duplicate names or locations are not allowed.
+- The "Add" button submits the form and adds a user.
+- The "Close" button closes the form.
 
-- **Birthdays:** 
-  - Listează toți utilizatorii ordonați după zilele de naștere apropiate.
+#### Birthdays:
+- Lists all users sorted by upcoming birthdays.
 
-## Funcționalități backend
-- Validare vârstă (minim 18 ani).
-- Nu sunt permise înregistrări duplicate pentru nume sau locație.
-- Suport pentru sortare și paginare.
+### Backend Features
+- Age validation (minimum 18 years).
+- No duplicate entries for name or location.
+- Supports sorting and pagination.
